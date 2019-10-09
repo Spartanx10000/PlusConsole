@@ -1,2 +1,2 @@
 # PlusConsole
-Simple library to improve console applications .NET
+Simple library to improve the presentation of console applications .NET
