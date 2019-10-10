@@ -12,9 +12,9 @@ Simple library to improve the presentation of console applications .NET
 
 ```vbnet
         Imports PlusConsole
-        .
-        .
-        .
+        ...
+        ...
+        ...
         'Console settings
         Dim width As Integer = 90
         Console.BufferWidth = width
