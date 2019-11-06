@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("PlusConsole")>
+<Assembly: AssemblyTitle("PlusConsole.Example")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("PlusConsole")>
-<Assembly: AssemblyCopyright("")>
+<Assembly: AssemblyCompany("Hewlett-Packard Company")>
+<Assembly: AssemblyProduct("PlusConsole.Example")>
+<Assembly: AssemblyCopyright("Copyright © Hewlett-Packard Company 2019")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-<Assembly: Guid("f6f9e418-1447-4110-a835-2ff05fc395e3")>
+<Assembly: Guid("1881d077-fd32-4e61-b213-343785aa9e07")>
 
 ' La información de versión de un ensamblado consta de los cuatro valores siguientes:
 '

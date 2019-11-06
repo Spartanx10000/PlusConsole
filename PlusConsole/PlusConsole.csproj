@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net35;net40;net45;netstandard2.0;netcoreapp2.1</TargetFrameworks>
+    <Version>1.1.0</Version>
+    <Authors>Carlos Daniel Angulo López</Authors>
+    <Company>Celeris-Soft</Company>
+    <Description>Simple library to improve the presentation of console applications in the .NET/.NET Core Framework.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\banner.flf" />
+    <None Remove="Fonts\big.flf" />
+    <None Remove="Fonts\mini.flf" />
+    <None Remove="Fonts\standard.flf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\banner.flf" />
+    <EmbeddedResource Include="Fonts\big.flf" />
+    <EmbeddedResource Include="Fonts\mini.flf" />
+    <EmbeddedResource Include="Fonts\standard.flf" />
+  </ItemGroup>
+
+
+</Project>
