@@ -4,8 +4,8 @@
 
         'Console settings
         Dim widthMax As Integer = 90
-        Console.BufferWidth = widthMax
         Console.WindowWidth = widthMax
+        Console.BufferWidth = widthMax
 
         'WriteASCII
         Plus.WriteASCII("PlusConsole.")

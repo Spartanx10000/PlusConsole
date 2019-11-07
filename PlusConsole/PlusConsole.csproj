@@ -6,6 +6,7 @@
     <Authors>Carlos Daniel Angulo López</Authors>
     <Company>Celeris-Soft</Company>
     <Description>Simple library to improve the presentation of console applications in the .NET/.NET Core Framework.</Description>
+    <Copyright />
   </PropertyGroup>
 
   <ItemGroup>

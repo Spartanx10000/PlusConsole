@@ -135,8 +135,8 @@ namespace PlusConsole
         /// </summary>
         public static void WriteSection(Section section)
         {
-            int width = (Console.BufferWidth % 2) == 0 ? Console.BufferWidth - 2 : Console.BufferWidth - 1;
-            int titleWidth = (section.Title.Length % 2) == 0 ? section.Title.Length : section.Title.Length + 1;
+            int width = ((Console.BufferWidth % 2) == 0) ? Console.BufferWidth - 2 : Console.BufferWidth - 1;
+            int titleWidth = ((section.Title.Length % 2) == 0) ? section.Title.Length : section.Title.Length + 1;
             int OffSet;
             int LeftOffSet;
             int RightOffSet;
@@ -150,7 +150,7 @@ namespace PlusConsole
                 case TextAlign.Middle:
                     OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(titleWidth / 2);
                     LeftOffSet = OffSet - 1;
-                    RightOffSet = (section.Title.Length % 2) == 0 ? OffSet - 1 : OffSet;
+                    RightOffSet = ((section.Title.Length % 2) == 0) ? OffSet - 1 : OffSet;
                     Console.WriteLine(section.GetCornersChar().ToString() + new string(section.GetTopBottomBorderChar(), LeftOffSet) + section.Title + new string(section.GetTopBottomBorderChar(), RightOffSet) + section.GetCornersChar().ToString());
                     break;
                 case TextAlign.Right:
@@ -246,7 +246,7 @@ namespace PlusConsole
                         value = title + new string(character,RightOffSet);
                         break;
                 case TextAlign.Middle:
-                        int OffSet = System.Convert.ToInt32(width / (double)2) - System.Convert.ToInt32(title.Length / (double)2);
+                        int OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(title.Length / 2);
                         value = (new string(character, OffSet) + title + new string(character, OffSet));
                         break;
                 case TextAlign.Right:
@@ -261,7 +261,7 @@ namespace PlusConsole
         {
             int slength = value.Length;
             int rlength;
-            string[] lines = new string[((value.Length / size) - 1 + (value.Length % size) > 0? 1:0) + 1];
+            string[] lines = new string[((value.Length / size) - 1 + (((value.Length % size) > 0) ? 1 : 0)) + 1];
             for (int i = 0; i <= lines.Length - 1; i++)
             {
                 rlength = slength - i * size;
