@@ -28,25 +28,25 @@
 
         'WriteSection 
         Dim sample1 As New Section("[ SECTION SAMPLE 1 ]")
-        sample1.AddLine("line 1")
-        sample1.AddLine("line 2")
+        sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         Plus.WriteSection(sample1)
 
         Dim sample2 As New Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle)
-        sample2.AddLine("line 1")
-        sample2.AddLine("line 2")
-        sample2.AddLine("line 3")
+        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         Plus.WriteSection(sample2, ConsoleColor.Blue)
 
         Dim sample3 As New Section("[ SECTION SAMPLE 3 ]", TextAlign.Right)
-        sample3.AddLine("line 1")
-        sample3.AddLine("line 2")
+        sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         Plus.WriteSection(sample3)
 
         Dim sample4 As New Section()
-        sample4.AddLine("line 1")
-        sample4.AddLine("line 2")
-        sample4.AddLine("line 3")
+        sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         Plus.WriteSection(sample4, ConsoleColor.Yellow)
 
         Console.WriteLine()
@@ -60,6 +60,24 @@
         'WriteSuccess
         Plus.WriteSuccess("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
         Plus.WriteSuccess("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+
+        Console.WriteLine()
+
+        'WriteWarning
+        Plus.WriteWarning("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        Plus.WriteWarning("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+
+        Console.WriteLine()
+
+        'WriteInfo
+        Plus.WriteInfo("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        Plus.WriteInfo("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+
+        Console.WriteLine()
+
+        'WriteFormat
+        Plus.WriteFormat("Hello {0}", "World")
+        Plus.WriteFormat("Process End...[{0}]", "OK", ConsoleColor.Green)
 
         Console.WriteLine()
 

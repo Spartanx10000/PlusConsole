@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PlusConsole</name>
+    </assembly>
+    <members>
+        <member name="T:PlusConsole.Plus">
+            <summary>
+            This class contains the main functions of the PlusConsole library.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteASCII(System.String)">
+            <summary>
+            Write the specified string value with ASCII characters.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteASCII(System.String,System.ConsoleColor)">
+            <summary>
+            Write the specified string value with ASCII characters and the specified console color.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteASCII(System.String,PlusConsole.Figlet)">
+            <summary>
+            Write the specified string value with ASCII characters of the specified font.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteASCII(System.String,PlusConsole.Figlet,System.ConsoleColor)">
+            <summary>
+            Write the specified string value with ASCII characters of the specified font and the specified console color.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator">
+            <summary>
+            Write a character line.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.Char)">
+            <summary>
+            Write a line of the specified character.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.Char,System.String)">
+            <summary>
+            Write a line of the specified character with a text.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.Char,System.String,PlusConsole.TextAlign)">
+            <summary>
+            Write a line of the specified character with a text in the alignment specified.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.ConsoleColor)">
+            <summary>
+            Write a character line with the console color specified.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.Char,System.ConsoleColor)">
+            <summary>
+            Write a line of the specified character with the console color specified.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.Char,System.String,System.ConsoleColor)">
+            <summary>
+            Write a line of the specified character with a text with the console color specified.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.Separator(System.Char,System.String,PlusConsole.TextAlign,System.ConsoleColor)">
+            <summary>
+            Write a line of the specified character with a text in the alignment specified and the console color specified.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteSection(PlusConsole.Section)">
+            <summary>
+            Write the representation of the section information.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteSection(PlusConsole.Section,System.ConsoleColor)">
+            <summary>
+            Write the representation of the section information the specified console color.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteError(System.String)">
+            <summary>
+            Write the representation of the error message.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteError(System.String,System.String)">
+            <summary>
+            Write the representation of the error message with the specified title.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteSuccess(System.String)">
+            <summary>
+            Write the representation of the success message.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteSuccess(System.String,System.String)">
+            <summary>
+            Write the representation of the success message with the specified title.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteWarning(System.String)">
+            <summary>
+            Write the representation of the warning message.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteWarning(System.String,System.String)">
+            <summary>
+            Write the representation of the warning message with the specified title.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteInfo(System.String)">
+            <summary>
+            Write the representation of the info message.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteInfo(System.String,System.String)">
+            <summary>
+            Write the representation of the info message with the specified title.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteFormat(System.String,System.String)">
+            <summary>
+            Write the representation of the format string.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Plus.WriteFormat(System.String,System.String,System.ConsoleColor)">
+            <summary>
+            Write the representation of the format string.
+            </summary>
+        </member>
+        <member name="P:PlusConsole.ProgressBar.ProgressBarColor">
+            <summary>
+            Specifies the bar color.
+            </summary>
+        </member>
+        <member name="P:PlusConsole.ProgressBar.ShowNumbers">
+            <summary>
+            Specifies if numbers are display.
+            </summary>
+        </member>
+        <member name="P:PlusConsole.ProgressBar.NumbersSeparator">
+            <summary>
+            Specifies the separator simbol for the numbers.
+            </summary>
+        </member>
+        <member name="P:PlusConsole.ProgressBar.LeftBorder">
+            <summary>
+            Specifies the left simbol use as border for the bar.
+            </summary>
+        </member>
+        <member name="P:PlusConsole.ProgressBar.RightBorder">
+            <summary>
+            Specifies the right simbol use as border for the bar.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Section.AddLine(System.String)">
+            <summary>
+            Add a new line to the section.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Section.GetLines">
+            <summary>
+            Return the lines of the section.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Section.GetTopBottomBorderChar">
+            <summary>
+            Return the char use for the top and bottom border of the section.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Section.GetLeftRightBorderChar">
+            <summary>
+            Return the char use for the left and right border of the section.
+            </summary>
+        </member>
+        <member name="M:PlusConsole.Section.GetCornersChar">
+            <summary>
+            Return the char use for the corners border of the section.
+            </summary>
+        </member>
+    </members>
+</doc>

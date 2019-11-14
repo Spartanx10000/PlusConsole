@@ -9,6 +9,9 @@ using System;
 
 namespace PlusConsole
 {
+    /// <summary>
+    /// This class contains the main functions of the PlusConsole library.
+    /// </summary>
     public class Plus
     {
         /// <summary>
@@ -234,6 +237,108 @@ namespace PlusConsole
             WriteSection(Info, ConsoleColor.DarkGreen);
         }
 
+        /// <summary>
+        /// Write the representation of the warning message.
+        /// </summary>
+        public static void WriteWarning(string msj)
+        {
+            Section Info = new Section("[   WARNING   ]", TextAlign.Middle);
+            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            {
+                Info.AddLine(item);
+            }
+            WriteSection(Info, ConsoleColor.Yellow);
+        }
+
+        /// <summary>
+        /// Write the representation of the warning message with the specified title.
+        /// </summary>
+        public static void WriteWarning(string title, string msj)
+        {
+            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle);
+            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            {
+                Info.AddLine(item);
+            }
+            WriteSection(Info, ConsoleColor.Yellow);
+        }
+
+        /// <summary>
+        /// Write the representation of the info message.
+        /// </summary>
+        public static void WriteInfo(string msj)
+        {
+            Section Info = new Section("[   INFO   ]", TextAlign.Middle);
+            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            {
+                Info.AddLine(item);
+            }
+            WriteSection(Info, ConsoleColor.Cyan);
+        }
+
+        /// <summary>
+        /// Write the representation of the info message with the specified title.
+        /// </summary>
+        public static void WriteInfo(string title, string msj)
+        {
+            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle);
+            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            {
+                Info.AddLine(item);
+            }
+            WriteSection(Info, ConsoleColor.Cyan);
+        }
+
+        /// <summary>
+        /// Write the representation of the format string.
+        /// </summary>
+        public static void WriteFormat(string format, string item)
+        {
+            int lenght = format.Length;
+            for (int i = 0; i < lenght; i++)
+            {
+                if (format[i] != '{')
+                {
+                    Console.Write(format[i]);
+                }
+                else
+                {
+                    if (format[i + 1] == '0' && format[i + 2] == '}')
+                    {
+                        i += 2;
+                        Console.Write(item);
+                    }
+                }
+            }
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Write the representation of the format string.
+        /// </summary>
+        public static void WriteFormat(string format, string item, ConsoleColor color)
+        {
+            ConsoleColor baseColor = Console.ForegroundColor;
+            int lenght = format.Length;
+            for (int i = 0; i < lenght; i++)
+            {
+                if (format[i] != '{')
+                {
+                    Console.Write(format[i]);
+                }
+                else
+                {
+                    if (format[i + 1] == '0' && format[i + 2] == '}')
+                    {
+                        i += 2;
+                        Console.ForegroundColor = color;
+                        Console.Write(item);
+                        Console.ForegroundColor = baseColor;
+                    }
+                }
+            }
+            Console.WriteLine();
+        }
 
         private static string titleAlign(char character, string title, TextAlign align)
         {

@@ -9,6 +9,10 @@
     <Copyright />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net35|AnyCPU'">
+    <DocumentationFile>C:\Users\carlo\Desktop\Development\Repository\Desktop\Class Library\PlusConsole\PlusConsole\PlusConsole.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Fonts\banner.flf" />
     <None Remove="Fonts\big.flf" />
