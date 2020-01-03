@@ -1,4 +1,5 @@
-# :computer: PlusConsole
+![PlusConsole](https://user-images.githubusercontent.com/25779434/71747921-31607600-2e2e-11ea-9375-bc3e26f7be0a.png)
+
 Simple library to improve the presentation of console applications in the .NET/.NET Core Framework
 
 ## :mag: Features
