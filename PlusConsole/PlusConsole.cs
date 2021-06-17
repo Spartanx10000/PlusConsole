@@ -1,8 +1,10 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
 // Author: Carlos Daniel Angulo López (SpartanX10000)
 // Project: PlusConsole
-// Class: Plus.cs
+// Class: PlusConsole.cs
 // Description: This class contains the main functions of the library.
+//https://weblog.west-wind.com/posts/2020/Jul/10/A-NET-Console-Color-Helper
+//https://github.com/deinsoftware/colorify
 //--------------------------------------------------------------------------------------------------------------------
 
 using System;
@@ -12,7 +14,7 @@ namespace PlusConsole
     /// <summary>
     /// This class contains the main functions of the PlusConsole library.
     /// </summary>
-    public class Plus
+    public class PlusConsole
     {
         /// <summary>
         /// Write the specified string value with ASCII characters.

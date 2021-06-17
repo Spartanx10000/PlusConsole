@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net35;net40;net45;netstandard2.0;netcoreapp2.1</TargetFrameworks>
-    <Version>1.1.0</Version>
+    <TargetFrameworks>net35;net40;net45;netstandard2.0;netcoreapp2.1;netcoreapp3.1</TargetFrameworks>
+    <Version>1.2.1</Version>
     <Authors>Carlos Daniel Angulo López</Authors>
     <Company>Celeris-Soft</Company>
     <Description>Simple library to improve the presentation of console applications in the .NET/.NET Core Framework.</Description>
@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net35|AnyCPU'">
-    <DocumentationFile>C:\Users\carlo\Desktop\Development\Repository\Desktop\Class Library\PlusConsole\PlusConsole\PlusConsole.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

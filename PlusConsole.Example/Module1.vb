@@ -8,21 +8,21 @@
         Console.BufferWidth = widthMax
 
         'WriteASCII
-        Plus.WriteASCII("PlusConsole.")
-        Plus.WriteASCII("PlusConsole.", ConsoleColor.Cyan)
-        Plus.WriteASCII("PlusConsole.", Figlet.Mini, ConsoleColor.Green)
-        Plus.WriteASCII("PlusConsole.", Figlet.Big, ConsoleColor.Yellow)
+        PlusConsole.WriteASCII("PlusConsole.")
+        PlusConsole.WriteASCII("PlusConsole.", ConsoleColor.Cyan)
+        PlusConsole.WriteASCII("PlusConsole.", Figlet.Mini, ConsoleColor.Green)
+        PlusConsole.WriteASCII("PlusConsole.", Figlet.Big, ConsoleColor.Yellow)
 
         Console.WriteLine()
 
         'Separator
-        Plus.Separator()
-        Plus.Separator(ConsoleColor.Red)
-        Plus.Separator("/"c, ConsoleColor.Green)
-        Plus.Separator("#"c, " SAMPLE ")
-        Plus.Separator("*"c, " SAMPLE ", TextAlign.Middle)
-        Plus.Separator("-"c, " SAMPLE ", TextAlign.Right)
-        Plus.Separator("*"c, " SAMPLE ", TextAlign.Middle, ConsoleColor.Blue)
+        PlusConsole.Separator()
+        PlusConsole.Separator(ConsoleColor.Red)
+        PlusConsole.Separator("/"c, ConsoleColor.Green)
+        PlusConsole.Separator("#"c, " SAMPLE ")
+        PlusConsole.Separator("*"c, " SAMPLE ", TextAlign.Middle)
+        PlusConsole.Separator("-"c, " SAMPLE ", TextAlign.Right)
+        PlusConsole.Separator("*"c, " SAMPLE ", TextAlign.Middle, ConsoleColor.Blue)
 
         Console.WriteLine()
 
@@ -30,54 +30,54 @@
         Dim sample1 As New Section("[ SECTION SAMPLE 1 ]")
         sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        Plus.WriteSection(sample1)
+        PlusConsole.WriteSection(sample1)
 
         Dim sample2 As New Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle)
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        Plus.WriteSection(sample2, ConsoleColor.Blue)
+        PlusConsole.WriteSection(sample2, ConsoleColor.Blue)
 
         Dim sample3 As New Section("[ SECTION SAMPLE 3 ]", TextAlign.Right)
         sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        Plus.WriteSection(sample3)
+        PlusConsole.WriteSection(sample3)
 
         Dim sample4 As New Section()
         sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        Plus.WriteSection(sample4, ConsoleColor.Yellow)
+        PlusConsole.WriteSection(sample4, ConsoleColor.Yellow)
 
         Console.WriteLine()
 
         'WriteError
-        Plus.WriteError("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        Plus.WriteError("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteError("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteError("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
         'WriteSuccess
-        Plus.WriteSuccess("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        Plus.WriteSuccess("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteSuccess("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteSuccess("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
         'WriteWarning
-        Plus.WriteWarning("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        Plus.WriteWarning("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteWarning("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteWarning("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
         'WriteInfo
-        Plus.WriteInfo("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        Plus.WriteInfo("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteInfo("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteInfo("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
         'WriteFormat
-        Plus.WriteFormat("Hello {0}", "World")
-        Plus.WriteFormat("Process End...[{0}]", "OK", ConsoleColor.Green)
+        PlusConsole.WriteFormat("Hello {0}", "World")
+        PlusConsole.WriteFormat("Process End...[{0}]", "OK", ConsoleColor.Green)
 
         Console.WriteLine()
 
@@ -107,22 +107,18 @@
 
         Console.WriteLine()
 
-        'Loading
-        Dim status1 As New Loading()
-        status1.StartLoading()
-        For i As Integer = 1 To total_operations
-            'Simulate work
-            System.Threading.Thread.Sleep(50)
-        Next
-        status1.StopLoading()
+        'Spinner
+        Dim Spinner As New Spinner()
+        Spinner.Start()
+        'Simulate work
+        System.Threading.Thread.Sleep(10000)
+        Spinner.Stop()
 
-        Dim status2 As New Loading("Uploading", ">")
-        status2.StartLoading()
-        For i As Integer = 1 To total_operations
-            'Simulate work
-            System.Threading.Thread.Sleep(50)
-        Next
-        status2.StopLoading()
+        Dim Spinner2 As New Spinner("Downloading", ConsoleColor.Yellow)
+        Spinner2.Start()
+        'Simulate work
+        System.Threading.Thread.Sleep(10000)
+        Spinner2.Stop()
 
         Console.WriteLine("Press any key to close the console.")
         Console.ReadKey()
