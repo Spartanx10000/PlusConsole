@@ -120,6 +120,25 @@
         System.Threading.Thread.Sleep(10000)
         Spinner2.Stop()
 
+        'Table
+        Dim Table = New Table()
+        Table.SetColumns = New String() {"Column 1", "Column 2", "Column 3"}
+        Table.AddRow("Row 1 Cell 1", "Row 1 Cell 2", "Row 1 Cell 3")
+        Table.AddRow("Row 2 Cell 1", "Row 2 Cell 2", "Row 2 Cell 3")
+        Table.AddRow("Row 3 Cell 1", "Row 3 Cell 2", "Row 3 Cell 3")
+        Table.WriteTable()
+
+        Dim table2 = New Table(ConsoleColor.Green)
+        table2.SetColumns = New String() {"Column 1", "Column 2", "Column 3", "Column 4"}
+        table2.HeaderAlign = TextAlign.Middle
+        table2.ColumnAlign = TextAlign.Middle
+        table2.AddRow("Row 1 Cell 1", "Row 1 Cell 2", "Row 1 Cell 3", "Row 1 Cell 4")
+        table2.AddRow("Row 2 Cell 1", "Row 2 Cell 2", "Row 2 Cell 3", "Row 2 Cell 4")
+        table2.AddRow("Row 3 Cell 1", "Row 3 Cell 2", "Row 3 Cell 3", "Row 3 Cell 4")
+        table2.WriteTable()
+
+        Console.WriteLine()
+
         Console.WriteLine("Press any key to close the console.")
         Console.ReadKey()
 

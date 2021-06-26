@@ -11,29 +11,29 @@ using System.Threading;
 namespace PlusConsole
 {
     public class Spinner : IDisposable
-    {
-        private string _label = "Loading";
-        private const string _steps = @"/-\|";
+    {             
         private int _counter = 0;
-        private static ConsoleColor _prevColor;
-        private readonly int _wait = 100;
         private bool _active;
+        private readonly int _wait = 100;
+        private readonly string _label = "Loading";
+        private readonly string _steps = @"/-\|";
         private readonly Thread _thread;
-        private static ConsoleColor _spinnerColor;
+        private readonly ConsoleColor _prevColor;
+        private readonly ConsoleColor _spinnerColor;
 
         public Spinner()
         {
-            _spinnerColor = ConsoleColor.Green;
-            _prevColor = Console.ForegroundColor;
-            _thread = new Thread(Step);
+            this._spinnerColor = ConsoleColor.Green;
+            this._prevColor = Console.ForegroundColor;
+            this._thread = new Thread(Step);
         }
 
         public Spinner(string labelText, ConsoleColor spinnerColor)
         {
-            _label = labelText;
-            _spinnerColor = spinnerColor;
-            _prevColor = Console.ForegroundColor;
-            _thread = new Thread(Step);
+            this._label = labelText;
+            this._spinnerColor = spinnerColor;
+            this._prevColor = Console.ForegroundColor;
+            this._thread = new Thread(Step);
         }
 
         public void Start()
@@ -48,6 +48,11 @@ namespace PlusConsole
         public void Stop()
         {
             _active = false;
+            Remove();
+        }
+
+        public void Dispose()
+        {
             Remove();
         }
 
@@ -83,11 +88,6 @@ namespace PlusConsole
             Console.CursorLeft = _label.Length + 2;
             Console.Write(c);
             Console.CursorVisible = true;
-        }
-
-        public void Dispose()
-        {
-            Remove();
         }
     }
 
