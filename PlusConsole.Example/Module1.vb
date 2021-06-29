@@ -30,48 +30,48 @@
         Dim sample1 As New Section("[ SECTION SAMPLE 1 ]")
         sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        PlusConsole.WriteSection(sample1)
+        sample1.WriteSection()
 
-        Dim sample2 As New Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle)
+        Dim sample2 As New Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle, ConsoleColor.Blue)
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        PlusConsole.WriteSection(sample2, ConsoleColor.Blue)
+        sample2.WriteSection()
 
         Dim sample3 As New Section("[ SECTION SAMPLE 3 ]", TextAlign.Right)
         sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        PlusConsole.WriteSection(sample3)
+        sample3.WriteSection()
 
-        Dim sample4 As New Section()
+        Dim sample4 As New Section(ConsoleColor.Yellow)
         sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
         sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        PlusConsole.WriteSection(sample4, ConsoleColor.Yellow)
+        sample4.WriteSection()
 
         Console.WriteLine()
 
-        'WriteError
-        PlusConsole.WriteError("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        PlusConsole.WriteError("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        'WriteErrorMessage
+        PlusConsole.WriteErrorMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteErrorMessage("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
-        'WriteSuccess
-        PlusConsole.WriteSuccess("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        PlusConsole.WriteSuccess("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        'WriteSuccessMessage
+        PlusConsole.WriteSuccessMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteSuccessMessage("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
-        'WriteWarning
-        PlusConsole.WriteWarning("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        PlusConsole.WriteWarning("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        'WriteWarningMessage
+        PlusConsole.WriteWarningMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteWarningMessage("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
-        'WriteInfo
-        PlusConsole.WriteInfo("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
-        PlusConsole.WriteInfo("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        'WriteInfoMessage
+        PlusConsole.WriteInfoMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
+        PlusConsole.WriteInfoMessage("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
 
         Console.WriteLine()
 
@@ -121,12 +121,12 @@
         Spinner2.Stop()
 
         'Table
-        Dim Table = New Table()
-        Table.SetColumns = New String() {"Column 1", "Column 2", "Column 3"}
-        Table.AddRow("Row 1 Cell 1", "Row 1 Cell 2", "Row 1 Cell 3")
-        Table.AddRow("Row 2 Cell 1", "Row 2 Cell 2", "Row 2 Cell 3")
-        Table.AddRow("Row 3 Cell 1", "Row 3 Cell 2", "Row 3 Cell 3")
-        Table.WriteTable()
+        Dim table = New Table()
+        table.SetColumns = New String() {"Column 1", "Column 2", "Column 3"}
+        table.AddRow("Row 1 Cell 1", "Row 1 Cell 2", "Row 1 Cell 3")
+        table.AddRow("Row 2 Cell 1", "Row 2 Cell 2", "Row 2 Cell 3")
+        table.AddRow("Row 3 Cell 1", "Row 3 Cell 2", "Row 3 Cell 3")
+        table.WriteTable()
 
         Dim table2 = New Table(ConsoleColor.Green)
         table2.SetColumns = New String() {"Column 1", "Column 2", "Column 3", "Column 4"}

@@ -3,8 +3,6 @@
 // Project: PlusConsole
 // Class: PlusConsole.cs
 // Description: This class contains the main functions of the library.
-//https://weblog.west-wind.com/posts/2020/Jul/10/A-NET-Console-Color-Helper
-//https://github.com/deinsoftware/colorify
 //--------------------------------------------------------------------------------------------------------------------
 
 using System;
@@ -80,7 +78,7 @@ namespace PlusConsole
         /// </summary>
         public static void Separator(char character, string text)
         {
-            Console.WriteLine(titleAlign(character, text, TextAlign.Left));
+            Console.WriteLine(Utils.TitleAlign(character, text, TextAlign.Left));
         }
 
         /// <summary>
@@ -88,7 +86,7 @@ namespace PlusConsole
         /// </summary>
         public static void Separator(char character, string text, TextAlign align)
         {
-            Console.WriteLine(titleAlign(character, text, align));
+            Console.WriteLine(Utils.TitleAlign(character, text, align));
         }
 
         /// <summary>
@@ -114,7 +112,7 @@ namespace PlusConsole
         }
 
         /// <summary>
-        /// Write a line of the specified character with a text with the console color specified.
+        /// Write a line of the specified character with a text and the console color specified.
         /// </summary>
         public static void Separator(char character, string text, ConsoleColor color)
         {
@@ -136,159 +134,139 @@ namespace PlusConsole
         }
 
         /// <summary>
-        /// Write the representation of the section information.
+        /// Write a error line.
         /// </summary>
-        public static void WriteSection(Section section)
+        public static void WriteError(string value)
         {
-            int width = ((Console.BufferWidth % 2) == 0) ? Console.BufferWidth - 2 : Console.BufferWidth - 1;
-            int titleWidth = ((section.Title.Length % 2) == 0) ? section.Title.Length : section.Title.Length + 1;
-            int OffSet;
-            int LeftOffSet;
-            int RightOffSet;
-
-            switch (section.TitleAlign)
-            {
-                case TextAlign.Left:
-                    RightOffSet = width - section.Title.Length;
-                    Console.WriteLine(section.GetCornersChar().ToString() + section.GetTopBottomBorderChar().ToString() + section.Title + (new string(section.GetTopBottomBorderChar(),RightOffSet - 3)) + section.GetCornersChar().ToString());
-                    break;
-                case TextAlign.Middle:
-                    OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(titleWidth / 2);
-                    LeftOffSet = OffSet - 1;
-                    RightOffSet = ((section.Title.Length % 2) == 0) ? OffSet - 1 : OffSet;
-                    Console.WriteLine(section.GetCornersChar().ToString() + new string(section.GetTopBottomBorderChar(), LeftOffSet) + section.Title + new string(section.GetTopBottomBorderChar(), RightOffSet) + section.GetCornersChar().ToString());
-                    break;
-                case TextAlign.Right:
-                    LeftOffSet = width - section.Title.Length;
-                    Console.WriteLine(section.GetCornersChar().ToString() + new string(section.GetTopBottomBorderChar(), LeftOffSet - 3) + section.Title + section.GetTopBottomBorderChar().ToString() + section.GetCornersChar().ToString());
-                    break;
-                default:
-                    Console.WriteLine(section.GetCornersChar().ToString() + (new string(section.GetTopBottomBorderChar(), width - 2)) + section.GetCornersChar().ToString());
-                    break;
-            }
-
-            foreach (string line in section.GetLines())
-            {
-                int lineOffSet = width - line.Length;
-                var value = section.GetLeftRightBorderChar().ToString() + " " + line + new string(' ', lineOffSet - 3) + section.GetLeftRightBorderChar().ToString();
-                Console.WriteLine(value);
-            }
-            Console.WriteLine(section.GetCornersChar().ToString() + new string(section.GetTopBottomBorderChar(), width - 2) + section.GetCornersChar().ToString());
+            Console.WriteLine(value, ConsoleColor.Red);
         }
 
         /// <summary>
-        /// Write the representation of the section information the specified console color.
+        /// Write a success line.
         /// </summary>
-        public static void WriteSection(Section section, ConsoleColor color)
+        public static void WriteSuccess(string value)
         {
-            ConsoleColor basecolor = Console.ForegroundColor;
-            Console.ForegroundColor = color;
-            WriteSection(section);
-            Console.ForegroundColor = basecolor;
+            Console.WriteLine(value, ConsoleColor.DarkGreen);
+        }
+
+        /// <summary>
+        /// Write a warning line.
+        /// </summary>
+        public static void WriteWarning(string value)
+        {
+            Console.WriteLine(value, ConsoleColor.Yellow);
+        }
+
+        /// <summary>
+        /// Write a information line.
+        /// </summary>
+        public static void WriteInfo(string value)
+        {
+            Console.WriteLine(value, ConsoleColor.Cyan);
         }
 
         /// <summary>
         /// Write the representation of the error message.
         /// </summary>
-        public static void WriteError(string msj)
+        public static void WriteErrorMessage(string msj)
         {
-            Section Info = new Section("[   ERROR   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Error = new Section("[   ERROR   ]", TextAlign.Middle, ConsoleColor.Red);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
-                Info.AddLine(item);
+                Error.AddLine(item);
             }           
-            WriteSection(Info, ConsoleColor.Red);
+            Error.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the error message with the specified title.
         /// </summary>
-        public static void WriteError(string title, string msj)
+        public static void WriteErrorMessage(string title, string msj)
         {
-            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Error = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Red);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
-                Info.AddLine(item);
-            }              
-            WriteSection(Info, ConsoleColor.Red);
+                Error.AddLine(item);
+            }
+            Error.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the success message.
         /// </summary>
-        public static void WriteSuccess(string msj)
+        public static void WriteSuccessMessage(string msj)
         {
-            Section Info = new Section("[   SUCCESS   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Success = new Section("[   SUCCESS   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
-                Info.AddLine(item);
-            }           
-            WriteSection(Info, ConsoleColor.DarkGreen);
+                Success.AddLine(item);
+            }
+            Success.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the success message with the specified title.
         /// </summary>
-        public static void WriteSuccess(string title, string msj)
+        public static void WriteSuccessMessage(string title, string msj)
         {
-            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Success = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
-                Info.AddLine(item);
-            }               
-            WriteSection(Info, ConsoleColor.DarkGreen);
+                Success.AddLine(item);
+            }
+            Success.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the warning message.
         /// </summary>
-        public static void WriteWarning(string msj)
+        public static void WriteWarningMessage(string msj)
         {
-            Section Info = new Section("[   WARNING   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Warning = new Section("[   WARNING   ]", TextAlign.Middle, ConsoleColor.Yellow);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
-                Info.AddLine(item);
+                Warning.AddLine(item);
             }
-            WriteSection(Info, ConsoleColor.Yellow);
+            Warning.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the warning message with the specified title.
         /// </summary>
-        public static void WriteWarning(string title, string msj)
+        public static void WriteWarningMessage(string title, string msj)
         {
-            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Warning = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Yellow);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
-                Info.AddLine(item);
+                Warning.AddLine(item);
             }
-            WriteSection(Info, ConsoleColor.Yellow);
+            Warning.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the info message.
         /// </summary>
-        public static void WriteInfo(string msj)
+        public static void WriteInfoMessage(string msj)
         {
-            Section Info = new Section("[   INFO   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Info = new Section("[   INFO   ]", TextAlign.Middle, ConsoleColor.Cyan);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
                 Info.AddLine(item);
             }
-            WriteSection(Info, ConsoleColor.Cyan);
+            Info.WriteSection();
         }
 
         /// <summary>
         /// Write the representation of the info message with the specified title.
         /// </summary>
-        public static void WriteInfo(string title, string msj)
+        public static void WriteInfoMessage(string title, string msj)
         {
-            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle);
-            foreach (string item in Split(msj, Console.BufferWidth - 6))
+            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Cyan);
+            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
             {
                 Info.AddLine(item);
             }
-            WriteSection(Info, ConsoleColor.Cyan);
+            Info.WriteSection();
         }
 
         /// <summary>
@@ -342,42 +320,5 @@ namespace PlusConsole
             Console.WriteLine();
         }
 
-        private static string titleAlign(char character, string title, TextAlign align)
-        {
-            string value = string.Empty;
-            int width = Console.BufferWidth;
-            switch (align)
-            {
-                case TextAlign.Left:
-                        int RightOffSet = width - title.Length;
-                        value = title + new string(character,RightOffSet);
-                        break;
-                case TextAlign.Middle:
-                        int OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(title.Length / 2);
-                        value = (new string(character, OffSet) + title + new string(character, OffSet));
-                        break;
-                case TextAlign.Right:
-                        int LeftOffSet = width - title.Length;
-                        value = new string(character, LeftOffSet) + title;
-                        break;
-            }
-            return value;
-        }
-
-        private static string[] Split(string value, int size)
-        {
-            int slength = value.Length;
-            int rlength;
-            string[] lines = new string[((value.Length / size) - 1 + (((value.Length % size) > 0) ? 1 : 0)) + 1];
-            for (int i = 0; i <= lines.Length - 1; i++)
-            {
-                rlength = slength - i * size;
-                if (rlength < size)
-                    lines[i] = value.Substring((i * size), rlength);
-                else
-                    lines[i] = value.Substring((i * size), size);
-            }
-            return lines;
-        }
     }
 }

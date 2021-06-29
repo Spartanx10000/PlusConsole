@@ -99,7 +99,7 @@ namespace PlusConsole
                         line += "| " + _columnHeaders[i].PadLeft(_lengths[i]) + ' ';
                         break;
                     case TextAlign.Middle:
-                        line += "| " + PadCenter(_columnHeaders[i], _lengths[i]) + ' ';
+                        line += "| " + Utils.PadCenter(_columnHeaders[i], _lengths[i]) + ' ';
                         break;
                     case TextAlign.Left:
                         line += "| " + _columnHeaders[i].PadRight(_lengths[i]) + ' ';
@@ -121,7 +121,7 @@ namespace PlusConsole
                             line += "| " + row[i].PadLeft(_lengths[i]) + ' ';
                             break;
                         case TextAlign.Middle:
-                            line += "| " + PadCenter(row[i], _lengths[i]) + ' ';
+                            line += "| " + Utils.PadCenter(row[i], _lengths[i]) + ' ';
                             break;
                         case TextAlign.Left:
                             line += "| " + row[i].PadRight(_lengths[i]) + ' ';
@@ -135,13 +135,6 @@ namespace PlusConsole
             Console.WriteLine("+");
 
             Console.ForegroundColor = _prevColor;
-        }
-
-        private static string PadCenter(string str, int length)
-        {
-            int spaces = length - str.Length;
-            int padLeft = spaces / 2 + str.Length;
-            return str.PadLeft(padLeft).PadRight(length);
         }
     }
 }

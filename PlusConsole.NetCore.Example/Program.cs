@@ -34,48 +34,48 @@ namespace PlusConsole.NetCore.Example
             Section sample1 = new Section("[ SECTION SAMPLE 1 ]");
             sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            PlusConsole.WriteSection(sample1);
+            sample1.WriteSection();
 
-            Section sample2 = new Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle);
+            Section sample2 = new Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle, ConsoleColor.Blue);
             sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            PlusConsole.WriteSection(sample2, ConsoleColor.Blue);
+            sample2.WriteSection();
 
             Section sample3 = new Section("[ SECTION SAMPLE 3 ]", TextAlign.Right);
             sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            PlusConsole.WriteSection(sample3);
+            sample3.WriteSection();
 
-            Section sample4 = new Section();
+            Section sample4 = new Section(ConsoleColor.Yellow);
             sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            PlusConsole.WriteSection(sample4, ConsoleColor.Yellow);
+            sample4.WriteSection();
 
             Console.WriteLine();
 
             //WriteError
-            PlusConsole.WriteError("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
-            PlusConsole.WriteError("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteErrorMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteErrorMessage("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
 
             Console.WriteLine();
 
             //WriteSuccess
-            PlusConsole.WriteSuccess("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
-            PlusConsole.WriteSuccess("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteSuccessMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteSuccessMessage("Sample Success Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
 
             Console.WriteLine();
 
             //WriteWarning
-            PlusConsole.WriteWarning("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
-            PlusConsole.WriteWarning("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteWarningMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteWarningMessage("Sample Warning Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
 
             Console.WriteLine();
 
             //WriteInfo
-            PlusConsole.WriteInfo("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
-            PlusConsole.WriteInfo("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteInfoMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
+            PlusConsole.WriteInfoMessage("Sample Info Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.");
 
             Console.WriteLine();
 

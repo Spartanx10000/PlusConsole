@@ -5,36 +5,55 @@
 // Description: This class contains the structure and information section.
 //--------------------------------------------------------------------------------------------------------------------
 
+using System;
 using System.Collections;
 
 namespace PlusConsole
 {
     public class Section
     {
-        private char _TopBottomChar = '=';
-        private char _LeftRightChar = '|';
-        private char _CornersChar = '+';
-        private ArrayList _Lines = new ArrayList();
-
-        public string Title { get; set; }
-        public TextAlign TitleAlign { get; set; }
+        private readonly ConsoleColor _prevColor = Console.ForegroundColor;
+        private readonly ConsoleColor _foreColor = Console.ForegroundColor;
+        private readonly char _topBottomChar = '=';
+        private readonly char _leftRightChar = '|';
+        private readonly char _cornersChar = '+';
+        private readonly string _title;
+        private TextAlign _titleAlign = TextAlign.Left;
+        private ArrayList _lines = new ArrayList();
 
         public Section()
         {
-            this.Title = string.Empty;
-            this.TitleAlign = TextAlign.Left;
+            this._title = string.Empty;
+        }
+
+        public Section(ConsoleColor color)
+        {
+            this._title = string.Empty;
+            this._foreColor = color;
         }
 
         public Section(string title)
         {
-            this.Title = title;
-            this.TitleAlign = TextAlign.Left;
+            this._title = title;
         }
 
-        public Section(string title, TextAlign align)
+        public Section(string title, ConsoleColor color)
         {
-            this.Title = title;
-            this.TitleAlign = align;
+            this._title = title;
+            this._foreColor = color;
+        }
+
+        public Section(string title, TextAlign titleAlign)
+        {
+            this._title = title;
+            this._titleAlign = titleAlign;
+        }
+
+        public Section(string title, TextAlign titleAlign, ConsoleColor color)
+        {
+            this._title = title;
+            this._titleAlign = titleAlign;
+            this._foreColor = color;
         }
 
         /// <summary>
@@ -42,39 +61,53 @@ namespace PlusConsole
         /// </summary>
         public void AddLine(string value)
         {
-            this._Lines.Add(value);
+            this._lines.Add(value);
         }
 
         /// <summary>
-        /// Return the lines of the section.
+        /// Write the representation of the section information.
         /// </summary>
-        public ArrayList GetLines()
+        public void WriteSection()
         {
-            return this._Lines;
+            int width = ((Console.BufferWidth % 2) == 0) ? Console.BufferWidth - 2 : Console.BufferWidth - 1;
+            int titleWidth = ((_title.Length % 2) == 0) ? _title.Length : _title.Length + 1;
+            int OffSet;
+            int LeftOffSet;
+            int RightOffSet;
+
+            Console.ForegroundColor = _foreColor;
+
+            switch (_titleAlign)
+            {
+                case TextAlign.Left:
+                    RightOffSet = width - _title.Length;
+                    Console.WriteLine(_cornersChar.ToString() + _topBottomChar.ToString() + _title + (new string(_topBottomChar, RightOffSet - 3)) + _cornersChar.ToString());
+                    break;
+                case TextAlign.Middle:
+                    OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(titleWidth / 2);
+                    LeftOffSet = OffSet - 1;
+                    RightOffSet = ((_title.Length % 2) == 0) ? OffSet - 1 : OffSet;
+                    Console.WriteLine(_cornersChar.ToString() + new string(_topBottomChar, LeftOffSet) + _title + new string(_topBottomChar, RightOffSet) + _cornersChar.ToString());
+                    break;
+                case TextAlign.Right:
+                    LeftOffSet = width - _title.Length;
+                    Console.WriteLine(_cornersChar.ToString() + new string(_topBottomChar, LeftOffSet - 3) + _title + _topBottomChar.ToString() + _cornersChar.ToString());
+                    break;
+                default:
+                    Console.WriteLine(_cornersChar.ToString() + (new string(_topBottomChar, width - 2)) + _cornersChar.ToString());
+                    break;
+            }
+
+            foreach (string line in _lines)
+            {
+                int lineOffSet = width - line.Length;
+                var value = _leftRightChar.ToString() + " " + line + new string(' ', lineOffSet - 3) + _leftRightChar.ToString();
+                Console.WriteLine(value);
+            }
+            Console.WriteLine(_cornersChar.ToString() + new string(_topBottomChar, width - 2) + _cornersChar.ToString());
+            Console.ForegroundColor = _prevColor;
         }
 
-        /// <summary>
-        /// Return the char use for the top and bottom border of the section.
-        /// </summary>
-        public char GetTopBottomBorderChar()
-        {
-            return this._TopBottomChar;
-        }
 
-        /// <summary>
-        /// Return the char use for the left and right border of the section.
-        /// </summary>
-        public char GetLeftRightBorderChar()
-        {
-            return this._LeftRightChar;
-        }
-
-        /// <summary>
-        /// Return the char use for the corners border of the section.
-        /// </summary>
-        public char GetCornersChar()
-        {
-            return this._CornersChar;
-        }
     }
 }
