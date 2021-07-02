@@ -51,6 +51,13 @@
 
         Console.WriteLine()
 
+        PlusConsole.WriteError("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        PlusConsole.WriteSuccess("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        PlusConsole.WriteWarning("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        PlusConsole.WriteInfo("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+
+        Console.WriteLine()
+
         'WriteErrorMessage
         PlusConsole.WriteErrorMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")
         PlusConsole.WriteErrorMessage("Sample Error Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere condimentum ex, nec cursus augue feugiat vitae. Aliquam fringilla lorem et sodales ullamcorper. Integer sollicitudin urna auctor nulla iaculis ultricies.")

@@ -58,7 +58,6 @@ namespace PlusConsole
 
         private void Remove()
         {
-            // Hide cursor to improve visuals
             Console.CursorVisible = false;
             for (int i = 1; i <= _label.Length + 3; i++)
             {

@@ -127,10 +127,10 @@ namespace PlusConsole
         /// </summary>
         public static void Separator(char character, string text, TextAlign align, ConsoleColor color)
         {
-            ConsoleColor basecolor = Console.ForegroundColor;
+            ConsoleColor prevColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
             Separator(character, text, align);
-            Console.ForegroundColor = basecolor;
+            Console.ForegroundColor = prevColor;
         }
 
         /// <summary>
@@ -138,7 +138,10 @@ namespace PlusConsole
         /// </summary>
         public static void WriteError(string value)
         {
-            Console.WriteLine(value, ConsoleColor.Red);
+            ConsoleColor prevColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(value);
+            Console.ForegroundColor = prevColor;
         }
 
         /// <summary>
@@ -146,7 +149,10 @@ namespace PlusConsole
         /// </summary>
         public static void WriteSuccess(string value)
         {
-            Console.WriteLine(value, ConsoleColor.DarkGreen);
+            ConsoleColor prevColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(value);
+            Console.ForegroundColor = prevColor;
         }
 
         /// <summary>
@@ -154,7 +160,10 @@ namespace PlusConsole
         /// </summary>
         public static void WriteWarning(string value)
         {
-            Console.WriteLine(value, ConsoleColor.Yellow);
+            ConsoleColor prevColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(value);
+            Console.ForegroundColor = prevColor;
         }
 
         /// <summary>
@@ -162,16 +171,19 @@ namespace PlusConsole
         /// </summary>
         public static void WriteInfo(string value)
         {
-            Console.WriteLine(value, ConsoleColor.Cyan);
+            ConsoleColor prevColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(value);
+            Console.ForegroundColor = prevColor;
         }
 
         /// <summary>
         /// Write the representation of the error message.
         /// </summary>
-        public static void WriteErrorMessage(string msj)
+        public static void WriteErrorMessage(string message)
         {
             Section Error = new Section("[   ERROR   ]", TextAlign.Middle, ConsoleColor.Red);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Error.AddLine(item);
             }           
@@ -181,10 +193,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the error message with the specified title.
         /// </summary>
-        public static void WriteErrorMessage(string title, string msj)
+        public static void WriteErrorMessage(string title, string message)
         {
             Section Error = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Red);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Error.AddLine(item);
             }
@@ -194,10 +206,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the success message.
         /// </summary>
-        public static void WriteSuccessMessage(string msj)
+        public static void WriteSuccessMessage(string message)
         {
             Section Success = new Section("[   SUCCESS   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Success.AddLine(item);
             }
@@ -207,10 +219,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the success message with the specified title.
         /// </summary>
-        public static void WriteSuccessMessage(string title, string msj)
+        public static void WriteSuccessMessage(string title, string message)
         {
             Section Success = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Success.AddLine(item);
             }
@@ -220,10 +232,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the warning message.
         /// </summary>
-        public static void WriteWarningMessage(string msj)
+        public static void WriteWarningMessage(string message)
         {
             Section Warning = new Section("[   WARNING   ]", TextAlign.Middle, ConsoleColor.Yellow);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Warning.AddLine(item);
             }
@@ -233,10 +245,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the warning message with the specified title.
         /// </summary>
-        public static void WriteWarningMessage(string title, string msj)
+        public static void WriteWarningMessage(string title, string message)
         {
             Section Warning = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Yellow);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Warning.AddLine(item);
             }
@@ -246,10 +258,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the info message.
         /// </summary>
-        public static void WriteInfoMessage(string msj)
+        public static void WriteInfoMessage(string message)
         {
             Section Info = new Section("[   INFO   ]", TextAlign.Middle, ConsoleColor.Cyan);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Info.AddLine(item);
             }
@@ -259,10 +271,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the info message with the specified title.
         /// </summary>
-        public static void WriteInfoMessage(string title, string msj)
+        public static void WriteInfoMessage(string title, string message)
         {
             Section Info = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Cyan);
-            foreach (string item in Utils.Split(msj, Console.BufferWidth - 6))
+            foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Info.AddLine(item);
             }

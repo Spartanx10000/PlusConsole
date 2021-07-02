@@ -11,27 +11,9 @@ namespace PlusConsole
 {
     public class ProgressBar
     {
-        // Total of operations
-        private int _Total;
-        // Show label
-        private bool _Label;
-        // Default bar lenght
-        private int _BarLenght = 50;
-
-        public ProgressBar(int total, bool label = true)
-        {
-            _Total = total;
-            _Label = label;
-            // Default bar color
-            this.ProgressBarColor = ConsoleColor.White;
-            // Show numbers 
-            this.ShowNumbers = false;
-            // Defaut separator for numbers
-            this.NumbersSeparator = "/";
-            // Default border simbols
-            this.LeftBorder = "(";
-            this.RightBorder = ")";
-        }
+        private readonly int _total;
+        private readonly bool _label;
+        private static int _lenght = 50;
 
         /// <summary>
         /// Specifies the bar color.
@@ -39,7 +21,7 @@ namespace PlusConsole
         public ConsoleColor ProgressBarColor { get; set; }
 
         /// <summary>
-        /// Specifies if numbers are display.
+        /// Specifies whether the number of operations is shown.
         /// </summary>
         public bool ShowNumbers { get; set; }
 
@@ -58,38 +40,43 @@ namespace PlusConsole
         /// </summary>
         public string RightBorder { get; set; }
 
-        public void UpdateProgress(int pProgress)
+        public ProgressBar(int total, bool label = true)
         {
-            // Hide cursor
+            this._total = total;
+            this._label = label;
+            this.ProgressBarColor = ConsoleColor.White;
+            this.ShowNumbers = false;
+            this.NumbersSeparator = "/";
+            this.LeftBorder = "(";
+            this.RightBorder = ")";
+        }
+
+        public void UpdateProgress(int progress)
+        {
             Console.CursorVisible = false;
-            // Draw the progress bar
             ConsoleColor savecolor = Console.BackgroundColor;
-            DrawProgressBar(Convert.ToInt32((pProgress * _BarLenght) / (double)_Total));
+            DrawProgressBar(Convert.ToInt32((progress * _lenght) / (double)_total));
             Console.BackgroundColor = savecolor;
-            // Display label
-            if (_Label)
-                DrawText(pProgress);
-            // Jump line when finish
-            if (pProgress == _Total)
-            {
-                Console.CursorLeft = _BarLenght + 2;
-                Console.WriteLine(" ");
+            if (_label) 
+            { 
+                DrawText(progress); 
             }
-            // Show cursor 
+            if (progress == _total)
+            {
+                Console.CursorLeft = _lenght + 2;
+                Console.WriteLine(" ");
+            } 
             Console.CursorVisible = true;
         }
 
-        private void DrawProgressBar(int pProgress)
+        private void DrawProgressBar(int progress)
         {
-            // Draw the left border simbol
             Console.CursorLeft = 0;
             Console.Write(this.LeftBorder);
-            // Draw the right border simbol
-            Console.CursorLeft = _BarLenght + 1;
+            Console.CursorLeft = _lenght + 1;
             Console.Write(this.RightBorder);
             Console.CursorLeft = 1;
-            // Draw the progress
-            for (int i = 1; i <= pProgress; i++)
+            for (int i = 1; i <= progress; i++)
             {
                 Console.BackgroundColor = this.ProgressBarColor;
                 Console.CursorLeft = i;
@@ -97,15 +84,17 @@ namespace PlusConsole
             }
         }
 
-        private void DrawText(int pProgress)
+        private void DrawText(int progress)
         {
-            Console.CursorLeft = _BarLenght + 3;
-            if (!this.ShowNumbers)
-                // Draw the percent
-                Console.Write(Convert.ToInt32((pProgress * 100) / (double)_Total) + "%    ");
-            else
-                // Draw the numbers
-                Console.Write(pProgress.ToString() + " " + this.NumbersSeparator + " " + _Total.ToString() + "    ");
+            Console.CursorLeft = _lenght + 3;
+            if (!this.ShowNumbers) 
+            { 
+                Console.Write(Convert.ToInt32((progress * 100) / (double)_total) + "%    ");
+            }
+            else 
+            { 
+                Console.Write(progress.ToString() + " " + this.NumbersSeparator + " " + _total.ToString() + "    ");
+            }
         }
     }
 }

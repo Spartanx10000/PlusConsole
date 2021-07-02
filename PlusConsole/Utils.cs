@@ -9,24 +9,25 @@ namespace PlusConsole
     {
         public static string TitleAlign(char character, string title, TextAlign align)
         {
-            string value = string.Empty;
+            string line = string.Empty;
             int width = Console.BufferWidth;
+            string value = "[ "+ title +" ]";
             switch (align)
             {
                 case TextAlign.Left:
-                    int RightOffSet = width - title.Length;
-                    value = title + new string(character, RightOffSet);
+                    int RightOffSet = width - value.Length;
+                    line = value + new string(character, RightOffSet);
                     break;
                 case TextAlign.Middle:
-                    int OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(title.Length / 2);
-                    value = (new string(character, OffSet) + title + new string(character, OffSet));
+                    int OffSet = System.Convert.ToInt32(width / 2) - System.Convert.ToInt32(value.Length / 2);
+                    line = (new string(character, OffSet) + value + new string(character, OffSet));
                     break;
                 case TextAlign.Right:
-                    int LeftOffSet = width - title.Length;
-                    value = new string(character, LeftOffSet) + title;
+                    int LeftOffSet = width - value.Length;
+                    line = new string(character, LeftOffSet) + value;
                     break;
             }
-            return value;
+            return line;
         }
 
         public static string[] Split(string value, int length)
