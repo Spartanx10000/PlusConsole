@@ -20,6 +20,7 @@ namespace PlusConsole
         private readonly string _title;
         private TextAlign _titleAlign = TextAlign.Left;
         private ArrayList _lines = new ArrayList();
+        private ArrayList _aligns = new ArrayList();
 
         public Section()
         {
@@ -59,9 +60,10 @@ namespace PlusConsole
         /// <summary>
         /// Add a new line to the section.
         /// </summary>
-        public void AddLine(string value)
+        public void AddLine(string value, TextAlign textAlign = TextAlign.Left)
         {
             this._lines.Add(value);
+            this._aligns.Add(textAlign);
         }
 
         /// <summary>
@@ -97,12 +99,24 @@ namespace PlusConsole
                     Console.WriteLine(_cornersChar.ToString() + (new string(_topBottomChar, width - 2)) + _cornersChar.ToString());
                     break;
             }
-
-            foreach (string line in _lines)
+            int index = 0;
+            foreach (string l in _lines)
             {
-                int lineOffSet = width - line.Length;
-                var value = _leftRightChar.ToString() + " " + line + new string(' ', lineOffSet - 3) + _leftRightChar.ToString();
-                Console.WriteLine(value);
+                var line = "";
+                switch ((TextAlign)_aligns[index])
+                {
+                    case TextAlign.Right:
+                        line = _leftRightChar.ToString() + " " + l.PadLeft(width - 3) + _leftRightChar.ToString();
+                        break;
+                    case TextAlign.Middle:
+                        line = _leftRightChar.ToString() + " " + Utils.PadCenter(l, width - 3) + _leftRightChar.ToString();
+                        break;
+                    case TextAlign.Left:
+                        line = _leftRightChar.ToString() + " " + l.PadRight(width - 3) + _leftRightChar.ToString();
+                        break;
+                }
+                Console.WriteLine(line);
+                index++;
             }
             Console.WriteLine(_cornersChar.ToString() + new string(_topBottomChar, width - 2) + _cornersChar.ToString());
             Console.ForegroundColor = _prevColor;

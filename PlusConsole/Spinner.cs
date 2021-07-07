@@ -18,13 +18,11 @@ namespace PlusConsole
         private readonly string _label = "Loading";
         private readonly string _steps = @"/-\|";
         private readonly Thread _thread;
-        private readonly ConsoleColor _prevColor;
-        private readonly ConsoleColor _spinnerColor;
+        private readonly ConsoleColor _prevColor = Console.ForegroundColor;
+        private readonly ConsoleColor _spinnerColor = Console.ForegroundColor;
 
         public Spinner()
         {
-            this._spinnerColor = ConsoleColor.Green;
-            this._prevColor = Console.ForegroundColor;
             this._thread = new Thread(Step);
         }
 

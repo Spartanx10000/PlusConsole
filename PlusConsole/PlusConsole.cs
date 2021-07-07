@@ -182,7 +182,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteErrorMessage(string message)
         {
-            Section Error = new Section("[   ERROR   ]", TextAlign.Middle, ConsoleColor.Red);
+            var Error = new Section("[   ERROR   ]", TextAlign.Middle, ConsoleColor.Red);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Error.AddLine(item);
@@ -195,7 +195,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteErrorMessage(string title, string message)
         {
-            Section Error = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Red);
+            var Error = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Red);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Error.AddLine(item);
@@ -208,7 +208,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteSuccessMessage(string message)
         {
-            Section Success = new Section("[   SUCCESS   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
+            var Success = new Section("[   SUCCESS   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Success.AddLine(item);
@@ -221,7 +221,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteSuccessMessage(string title, string message)
         {
-            Section Success = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
+            var Success = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.DarkGreen);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Success.AddLine(item);
@@ -234,7 +234,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteWarningMessage(string message)
         {
-            Section Warning = new Section("[   WARNING   ]", TextAlign.Middle, ConsoleColor.Yellow);
+            var Warning = new Section("[   WARNING   ]", TextAlign.Middle, ConsoleColor.Yellow);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Warning.AddLine(item);
@@ -247,7 +247,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteWarningMessage(string title, string message)
         {
-            Section Warning = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Yellow);
+            var Warning = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Yellow);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Warning.AddLine(item);
@@ -260,7 +260,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteInfoMessage(string message)
         {
-            Section Info = new Section("[   INFO   ]", TextAlign.Middle, ConsoleColor.Cyan);
+            var Info = new Section("[   INFO   ]", TextAlign.Middle, ConsoleColor.Cyan);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Info.AddLine(item);
@@ -273,7 +273,7 @@ namespace PlusConsole
         /// </summary>
         public static void WriteInfoMessage(string title, string message)
         {
-            Section Info = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Cyan);
+            var Info = new Section("[   " + title + "   ]", TextAlign.Middle, ConsoleColor.Cyan);
             foreach (string item in Utils.Split(message, Console.BufferWidth - 6))
             {
                 Info.AddLine(item);
@@ -284,9 +284,10 @@ namespace PlusConsole
         /// <summary>
         /// Write the representation of the format string.
         /// </summary>
-        public static void WriteFormat(string format, string item)
+        public static void WriteFormat(string format, params string[] items)
         {
             int lenght = format.Length;
+            int index = 0;
             for (int i = 0; i < lenght; i++)
             {
                 if (format[i] != '{')
@@ -295,10 +296,11 @@ namespace PlusConsole
                 }
                 else
                 {
-                    if (format[i + 1] == '0' && format[i + 2] == '}')
+                    if ((int)char.GetNumericValue(format[i + 1]) == index && format[i + 2] == '}')
                     {
-                        i += 2;
-                        Console.Write(item);
+                            i += 2;
+                            Console.Write(items[index]);
+                            index++;
                     }
                 }
             }
@@ -306,12 +308,13 @@ namespace PlusConsole
         }
 
         /// <summary>
-        /// Write the representation of the format string.
+        /// Write the representation of the format string with values highlight in the specifies color.
         /// </summary>
-        public static void WriteFormat(string format, string item, ConsoleColor color)
+        public static void WriteFormat(string format, ConsoleColor color, params string[] items)
         {
-            ConsoleColor baseColor = Console.ForegroundColor;
+            ConsoleColor prevColor = Console.ForegroundColor;
             int lenght = format.Length;
+            int index = 0;
             for (int i = 0; i < lenght; i++)
             {
                 if (format[i] != '{')
@@ -320,17 +323,17 @@ namespace PlusConsole
                 }
                 else
                 {
-                    if (format[i + 1] == '0' && format[i + 2] == '}')
+                    if ((int)char.GetNumericValue(format[i + 1]) == index && format[i + 2] == '}')
                     {
                         i += 2;
                         Console.ForegroundColor = color;
-                        Console.Write(item);
-                        Console.ForegroundColor = baseColor;
+                        Console.Write(items[index]);
+                        Console.ForegroundColor = prevColor;
+                        index++;
                     }
                 }
             }
             Console.WriteLine();
         }
-
     }
 }

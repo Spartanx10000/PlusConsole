@@ -30,24 +30,24 @@ namespace PlusConsole.NetCore.Example
 
             Console.WriteLine();
 
-            //WriteSection 
-            Section sample1 = new Section("[ SECTION SAMPLE 1 ]");
+            //WriteSection
+            var sample1 = new Section("[ SECTION SAMPLE 1 ]");
             sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample1.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample1.WriteSection();
 
-            Section sample2 = new Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle, ConsoleColor.Blue);
+            var sample2 = new Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle, ConsoleColor.Blue);
             sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+            sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", TextAlign.Middle);
+            sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", TextAlign.Right);
             sample2.WriteSection();
 
-            Section sample3 = new Section("[ SECTION SAMPLE 3 ]", TextAlign.Right);
+            var sample3 = new Section("[ SECTION SAMPLE 3 ]", TextAlign.Right);
             sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample3.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample3.WriteSection();
 
-            Section sample4 = new Section(ConsoleColor.Yellow);
+            var sample4 = new Section(ConsoleColor.Yellow);
             sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
             sample4.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
@@ -86,9 +86,12 @@ namespace PlusConsole.NetCore.Example
 
             Console.WriteLine();
 
-            //WriteFormat
+            ////WriteFormat
             PlusConsole.WriteFormat("Hello {0}", "World");
-            PlusConsole.WriteFormat("Process End...[{0}]", "OK", ConsoleColor.Green);
+            PlusConsole.WriteFormat("Hello {0}",ConsoleColor.Cyan, "World");
+            PlusConsole.WriteFormat("Hello {0} {1}", "World",":)");
+            PlusConsole.WriteFormat("Process End...[{0}] {1}", ConsoleColor.Green, "OK", "2 Records");
+            PlusConsole.WriteFormat("Process End...[{0}] {1}", ConsoleColor.Red, "Error", "404");
 
             Console.WriteLine();
 
@@ -96,7 +99,7 @@ namespace PlusConsole.NetCore.Example
             int total_operations = 100;
 
             ////Progressbar
-            ProgressBar progress1 = new ProgressBar(total_operations, true);
+            var progress1 = new ProgressBar(total_operations, true);
 
             for (int i = 1; i <= total_operations; i++)
             {
@@ -107,7 +110,7 @@ namespace PlusConsole.NetCore.Example
 
             Console.WriteLine();
 
-            ProgressBar progress2 = new ProgressBar(total_operations, true);
+            var progress2 = new ProgressBar(total_operations, true);
             progress2.ShowNumbers = true;
             progress2.ProgressBarColor = ConsoleColor.Green;
             progress2.LeftBorder = "[";
@@ -129,22 +132,22 @@ namespace PlusConsole.NetCore.Example
             System.Threading.Thread.Sleep(10000);
             spinner.Stop();
 
-            var spinner2 = new Spinner("Downloading", ConsoleColor.Red);
+            var spinner2 = new Spinner("Downloading", ConsoleColor.Green);
             spinner2.Start();
             //Simulate work
             System.Threading.Thread.Sleep(10000);
             spinner2.Stop();
 
             //Table
-            Table table = new Table();
-            table.SetColumns = new string[] {"Column 1", "Column 2", "Column 3"};
+            var table = new Table();
+            table.SetColumns = new string[] { "Column 1", "Column 2", "Column 3" };
             table.AddRow("Row 1 Cell 1", "Row 1 Cell 2", "Row 1 Cell 3");
             table.AddRow("Row 2 Cell 1", "Row 2 Cell 2", "Row 2 Cell 3");
             table.AddRow("Row 3 Cell 1", "Row 3 Cell 2", "Row 3 Cell 3");
             table.WriteTable();
 
-            Table table2 = new Table(ConsoleColor.Green);
-            table2.SetColumns = new string[] {"Column 1", "Column 2", "Column 3", "Column 4"};
+            var table2 = new Table(ConsoleColor.Green);
+            table2.SetColumns = new string[] { "Column 1", "Column 2", "Column 3", "Column 4" };
             table2.HeaderAlign = TextAlign.Middle;
             table2.ColumnAlign = TextAlign.Middle;
             table2.AddRow("Row 1 Cell 1", "Row 1 Cell 2", "Row 1 Cell 3", "Row 1 Cell 4");
