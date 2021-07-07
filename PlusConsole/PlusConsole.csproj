@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFrameworks>net35;net40;net45;netstandard2.0;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
-    <Version>1.2.1</Version>
+    <Version>2.0.0</Version>
     <Authors>Carlos Daniel Angulo López</Authors>
     <Company>Celeris-Soft</Company>
-    <Description>Simple library to improve the presentation of console applications in the .NET/.NET Core Framework.</Description>
+    <Description>Simple library to improve the presentation of .NET console applications.</Description>
     <Copyright />
   </PropertyGroup>
 
