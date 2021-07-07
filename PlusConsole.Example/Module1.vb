@@ -34,8 +34,8 @@
 
         Dim sample2 As New Section("[ SECTION SAMPLE 2 ]", TextAlign.Middle, ConsoleColor.Blue)
         sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", TextAlign.Middle)
+        sample2.AddLine("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", TextAlign.Right)
         sample2.WriteSection()
 
         Dim sample3 As New Section("[ SECTION SAMPLE 3 ]", TextAlign.Right)
@@ -84,7 +84,10 @@
 
         'WriteFormat
         PlusConsole.WriteFormat("Hello {0}", "World")
-        PlusConsole.WriteFormat("Process End...[{0}]", "OK", ConsoleColor.Green)
+        PlusConsole.WriteFormat("Hello {0}", ConsoleColor.Cyan, "World")
+        PlusConsole.WriteFormat("Hello {0} {1}", "World", ":)")
+        PlusConsole.WriteFormat("Process End...[{0}] {1}", ConsoleColor.Green, "OK", "2 Records")
+        PlusConsole.WriteFormat("Process End...[{0}] {1}", ConsoleColor.Red, "Error", "404")
 
         Console.WriteLine()
 
