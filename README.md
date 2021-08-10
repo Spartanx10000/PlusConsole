@@ -1,4 +1,17 @@
-![PlusConsole](https://user-images.githubusercontent.com/25779434/71747921-31607600-2e2e-11ea-9375-bc3e26f7be0a.png)
+<p align="center">
+   <img alt="PlusConsole" src="https://user-images.githubusercontent.com/25779434/71747921-31607600-2e2e-11ea-9375-bc3e26f7be0a.png">
+</p>
+
+
+<p align="center">
+   <a href="https://github.com/Spartanx10000/PlusConsole/releases">
+      <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Spartanx10000/PlusConsole">
+   </a>
+   <a href="https://github.com/Spartanx10000/PlusConsole/releases">
+      <img alt="License" src="https://img.shields.io/github/license/Spartanx10000/PlusConsole">
+   </a>
+   
+</p>
 
 Simple library to improve the presentation of .NET console applications.
 
