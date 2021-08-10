@@ -7,7 +7,7 @@
    <a href="https://github.com/Spartanx10000/PlusConsole/releases">
       <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Spartanx10000/PlusConsole">
    </a>
-   <a href="https://github.com/Spartanx10000/PlusConsole/releases">
+   <a href="https://github.com/Spartanx10000/PlusConsole/blob/master/LICENSE">
       <img alt="License" src="https://img.shields.io/github/license/Spartanx10000/PlusConsole">
    </a>
    
