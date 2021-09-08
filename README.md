@@ -1,17 +1,19 @@
 <p align="center">
-   
-   ![PlusConsole](https://user-images.githubusercontent.com/25779434/129614681-3cf7bc78-e393-4091-89f4-b70c4a7ba327.png)
+   <img alt="PlusConsole" width="350" src="https://user-images.githubusercontent.com/25779434/129614681-3cf7bc78-e393-4091-89f4-b70c4a7ba327.png">
 </p>
-
 
 <p align="center">
    <a href="https://github.com/Spartanx10000/PlusConsole/releases">
       <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Spartanx10000/PlusConsole">
    </a>
-   <a href="https://github.com/Spartanx10000/PlusConsole/blob/master/LICENSE">
-      <img alt="License" src="https://img.shields.io/github/license/Spartanx10000/PlusConsole">
+   
+   <a>
+      <img alt="Repo-size" src="https://img.shields.io/github/repo-size/Spartanx10000/PlusConsole">
    </a>
    
+   <a href="https://github.com/Spartanx10000/PlusConsole/blob/master/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/Spartanx10000/PlusConsole">
+   </a>   
 </p>
 
 Simple library to improve the presentation of .NET console applications.
